@@ -18,6 +18,10 @@ class Student:
     def curve_marks(self,percentage):
         perc=(self.marks/percentage)
         return self.marks+perc
+    def result(self):
+        if self.marks>Student.passing_marks:
+            return True
+        return False
     def convert_marks(self):
         if 80 < self.marks <=100:
             return "A"
@@ -37,3 +41,5 @@ print(std1.curve_marks(8)) #Increasing student marks by 8 percent
 print(std2.curve_marks(9)) #Increasing student percentage by 9 percent
 print(std1.convert_marks()) #Converting student marks to grade
 print(std2.convert_marks()) #Converting student marks to grade
+print(std1.result())
+print(std2.result())
