@@ -21,6 +21,11 @@ class Inventory:
     def remove(cls, item):
         Inventory.di.pop(item)
     @classmethod
+    def less_the_qtr(cls,item,rv_qty):
+        st=Inventory.di[item]
+        fst=st-rv_qty
+        Inventory.di[item]=fst
+    @classmethod
     def update_min_stock(cls,new_min):
         cls.min_stock=new_min
     @staticmethod
@@ -28,7 +33,6 @@ class Inventory:
         if d in Inventory.di:
             return True
         return False
-
 stock=Inventory("soap",6)
 stock1=Inventory("Sugar",26)
 stock3=Inventory("Milk-Packets",2)
@@ -40,3 +44,5 @@ if Inventory.check("soap"):
     print("In Stock")
 else:
     print("Not in Stock")
+Inventory.less_the_qtr("Sugar",6) #we can remove the 'N' quantity from the stock
+print(Inventory.di["Sugar"])
